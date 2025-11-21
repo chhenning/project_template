@@ -1,6 +1,6 @@
 # project_template
 
-I'm working through a lot of git repositories and here is my current favorite setup.
+I'm working with a lot of git repositories and here is my current favorite setup.
 
 ## uv setup
 
@@ -11,5 +11,12 @@ source .venv/bin/activate
 
 uv add ipykernel
 uv add streamlit
+uv add python-dotenv
+uv add loguru
 ```
 
+## start script
+
+```sh
+. ./scripts/setup.sh
+```
