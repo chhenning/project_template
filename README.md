@@ -22,6 +22,8 @@ uv add pandas
 uv add scikit-learn
 
 uv add streamlit
+
+uv add pytest
 ```
 
 ## start script
