@@ -6,8 +6,8 @@ To get started:
 
 1. clone repo
 2. run `uv sync`
-3. run `make setup` - to activate virtual environment and setting `PYTHONPATH`
-4. run `make test`
+3. run `make test`
+4. run `make run`
 
 
 ## Detail
