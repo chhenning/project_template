@@ -1,8 +1,7 @@
-.PHONY: test run 
+.PHONY: test run setup
 
 test:
-	pytest -q
+	. ./scripts/setup.sh && pytest -q
 
 run:
-	python app_name/app.py run --param Love
-
+	. ./scripts/setup.sh && python app_name/app.py run --param Love

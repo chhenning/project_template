@@ -1,33 +1,25 @@
 # project_template
 
-I'm working with a lot of git repositories and here is my current favorite setup.
+Here is my current favorite setup of a Python based project in vscode.
 
-## uv setup
+To get started:
 
-```
-uv init
-uv venv --python 3.13
-source .venv/bin/activate
-```
+1. clone repo
+2. run `uv sync`
+3. run `make setup` - to activate virtual environment and setting `PYTHONPATH`
+4. run `make test`
 
-## favorite modules
 
-```
-uv add ipykernel
-uv add python-dotenv
-uv add loguru
+## Detail
 
-uv add matplotlib
-uv add pandas
-uv add scikit-learn
+I'm using [uv](https://docs.astral.sh/uv/) as the package manager.
 
-uv add streamlit
+The following modules are setup:
 
-uv add pytest
-```
+- `ipykernel` - vscode only needs the kernel not the full-fledged Jupyter server
+- `python-dotenv` - load environmental variables from `.env` file
+- `pytest`
 
-## start script
+- `loguru` - for logging
 
-```sh
-. ./scripts/setup.sh
-```
+- various data engineer/science modules: `matplotlib`, `pandas`, `scikit-learn`, and `streamlit`
