@@ -1,7 +1,24 @@
-.PHONY: test run setup
+.PHONY: help test say shout repeat
+
+# Variables
+
+# "source" allows setup.sh to export env vars to the Python script
+SETUP_CMD := . ./scripts/setup.sh
+PYTHON    := python
+SCRIPT    := app_name/app.py
+PRE       := $(SETUP_CMD) &&
+
+help:
+	@$(PYTHON) $(SCRIPT) --help
 
 test:
-	@. ./scripts/setup.sh && pytest -q
+	$(PRE) pytest -q
 
-run:
-	@. ./scripts/setup.sh && clear && python app_name/app.py run --param Love
+say:
+	$(PRE) $(PYTHON) $(SCRIPT) say --msg "$(MSG)"
+
+shout:
+	$(PRE) $(PYTHON) $(SCRIPT) shout --msg "$(MSG)"
+
+repeat:
+	$(PRE) $(PYTHON) $(SCRIPT) repeat --msg "$(MSG)" --times $(TIMES)

@@ -7,7 +7,15 @@ To get started:
 1. clone repo
 2. run `uv sync`
 3. run `make test`
-4. run `make run`
+4. run `make`
+
+## Usage
+
+- `make` or `make help`: show help
+- `make test`: run tests
+- `make say MSG="Hello"`: run app's subcommand `say` with argument
+- `make shout MSG="Hello"`: run app's subcommand `shout` with argument
+- `make repeat MSG="Hello" TIMES=3`: run app's subcommand `say` with argument
 
 
 ## Detail

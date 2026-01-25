@@ -1,4 +1,3 @@
-# clear; python app_name/app.py
 import argparse
 import os
 
@@ -6,33 +5,50 @@ from dotenv import load_dotenv
 
 from loguru import logger
 
-load_dotenv()  # looks for a .env file in the current directory
-
 from app_name.utils import say_hi
 
+load_dotenv()  # looks for a .env file in the current directory
 
-def cmd_run(args):
-    logger.info(f"Running with param: {args.param}")
+MY_KEY = os.getenv("MY_KEY", "")
 
-    print(os.getenv("MY_KEY"))
 
-    say_hi()
+def cmd_say(args):
+    print(args.msg)
+
+
+def cmd_shout(args):
+    print(args.msg.upper())
+
+
+def cmd_repeat(args):
+    for _ in range(args.times):
+        print(args.msg)
 
 
 def main():
     logger.info("App is running...")
 
-    p = argparse.ArgumentParser(prog="app_name")
+    p = argparse.ArgumentParser(prog="say_hi")
     sub = p.add_subparsers(dest="cmd", required=True)
 
-    pb = sub.add_parser("run", help="Do something useful.")
-    pb.add_argument("--param", required=True, help="Give me a param.")
-    pb.set_defaults(func=cmd_run)
+    # say
+    pb = sub.add_parser("say", help="Say something.")
+    pb.add_argument("--msg", required=True, help="What to say?")
+    pb.set_defaults(func=cmd_say)
+
+    # shout
+    pb = sub.add_parser("shout", help="Shout something")
+    pb.add_argument("--msg", required=True)
+    pb.set_defaults(func=cmd_shout)
+
+    # repeat
+    pb = sub.add_parser("repeat", help="Repeat something")
+    pb.add_argument("--msg", required=True)
+    pb.add_argument("--times", type=int, default=1)
+    pb.set_defaults(func=cmd_repeat)
 
     args = p.parse_args()
     args.func(args)
-
-    logger.info("App is running...")
 
 
 if __name__ == "__main__":
