@@ -13,6 +13,7 @@
     "files.autoSave": "onFocusChange",
     "workbench.editor.showTabs": "multiple",
     "python.analysis.autoImportCompletions": false,
+    "python.analysis.typeCheckingMode": "off",
     "[javascript]": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode"
