@@ -1,3 +1,6 @@
+include .env
+export
+
 .PHONY: help test say shout repeat
 
 # Variables
